@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Predicción Baby Shower</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#F8F5F2;
+    font-family:Georgia, serif;
+    display:flex;
+    justify-content:center;
+}
+
+.contenedor{
+    width:360px;
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:20px;
+    margin:30px;
+    box-shadow:0px 5px 20px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#B48A5A;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:22px;
+    color:#444;
+}
+
+.opciones{
+    display:flex;
+    justify-content:space-around;
+    margin-top:30px;
+}
+
+.tarjeta{
+    width:130px;
+}
+
+.tarjeta img{
+    width:100px;
+}
+
+button{
+
+    width:120px;
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#D8B48A;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+background:#B98D62;
+
+}
+
+.resultados{
+
+margin-top:50px;
+
+}
+
+.porcentajes{
+
+display:flex;
+
+justify-content:space-evenly;
+
+margin-top:20px;
+
+}
+
+.circulo{
+
+width:100px;
+
+height:100px;
+
+border-radius:50%;
+
+background:#D8B48A;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:white;
+
+font-size:28px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>¿Cuál es tu predicción?</h1>
+
+<p>Selecciona el botón de tu predicción</p>
+
+<div class="opciones">
+
+<div class="tarjeta">
+
+<img src="osito-niño.png">
+
+<br><br>
+
+<button onclick="votarNino()">
+
+Niño
+
+</button>
+
+</div>
+
+<div class="tarjeta">
+
+<img src="osita-niña.png">
+
+<br><br>
+
+<button onclick="votarNina()">
+
+Niña
+
+</button>
+
+</div>
+
+</div>
+
+<div class="resultados">
+
+<h1 style="font-size:36px;">Resultados</h1>
+
+<div class="porcentajes">
+
+<div class="circulo" id="pnino">
+
+50%
+
+</div>
+
+<div class="circulo" id="pnina">
+
+50%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let votosNino=0;
+
+let votosNina=0;
+
+function actualizar(){
+
+let total=votosNino+votosNina;
+
+if(total==0){
+
+document.getElementById("pnino").innerHTML="0%";
+
+document.getElementById("pnina").innerHTML="0%";
+
+return;
+
+}
+
+let p1=Math.round(votosNino*100/total);
+
+let p2=Math.round(votosNina*100/total);
+
+document.getElementById("pnino").innerHTML=p1+"%";
+
+document.getElementById("pnina").innerHTML=p2+"%";
+
+}
+
+function votarNino(){
+
+votosNino++;
+
+actualizar();
+
+}
+
+function votarNina(){
+
+votosNina++;
+
+actualizar();
+
+}
+
+</script>
+
+</body>
+</html>
